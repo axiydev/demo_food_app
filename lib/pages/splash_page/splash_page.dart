@@ -34,20 +34,55 @@ class _SplashScreenState extends State<SplashScreen>{
               fit: BoxFit.cover,
             )
           ),
-          child: Center(
-            child: Container(
-              height: size.width*0.5,
-              width: size.width*0.5,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-                border: Border.all(width: 0.1,color: Colors.grey),
-                boxShadow: [
-                  BoxShadow(offset: Offset(0,10),color: Colors.grey[300]!,blurRadius: 20,spreadRadius: 5),
-                ]
-              ),
-            ),
-          ),
+          child:Center(
+                child: Container(
+                    height: size.width*0.65,
+                    width: size.width*0.65,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                        border: Border.all(width: 0.1,color: Colors.grey),
+                        boxShadow: [
+                          BoxShadow(offset: Offset(0,10),color: Colors.grey[300]!,blurRadius: 20,spreadRadius: 5),
+                        ]
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                            Flexible(child: Container(
+                              height: size.width*0.6,
+                              width: size.width*0.6,
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage('assets/images/ic_logo.png'),
+                                    fit: BoxFit.cover,
+                                  )
+                              ),
+                            ),),
+                            Transform.translate(
+                              offset: Offset(0,-size.width*0.18),
+                              child:  Container(
+                                child: Text("Food for everyone"),
+                            ),
+                            ),
+                            Transform.translate(
+                            offset:Offset(0,-size.width*0.16),
+                            child:
+                                Container(
+                                  margin: EdgeInsets.only(top:10),
+                                  height: size.width*0.05,
+                                  width: size.width*0.05,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    backgroundColor: Colors.red,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
         ),
       ),
     );
