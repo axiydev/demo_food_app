@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:demo_app/pages/login_page/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String id = "splash_screen";
@@ -63,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen>{
                             Transform.translate(
                               offset: Offset(0,-size.width*0.18),
                               child:  Container(
-                                child: Text("Food for everyone"),
+                                child: Text("Food for everyone",style:GoogleFonts.rubik(fontSize:13,color: Color(0xFFFA4A0C))),
                             ),
                             ),
                             Transform.translate(

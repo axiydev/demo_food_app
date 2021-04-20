@@ -9,7 +9,7 @@ void main()=>runApp(MyApp());
 
 
 class MyApp extends StatelessWidget {
-  final futureWaitTime=Future.delayed(Duration(seconds: 10000000000));
+  final futureWaitTime=Future.delayed(Duration(seconds: 3));
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
