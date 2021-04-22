@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:demo_app/pages/main_page/main_page.dart';
 import 'package:demo_app/pages/login_page/login_page.dart';
 import 'package:demo_app/pages/splash_page/splash_page.dart';
 import 'package:demo_app/theme.dart';
@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
               home: SplashScreen.screen(),
               theme: basicTheme(context),
               routes: {
-                LoginScreen.id:(context)=>LoginScreen(),
+                LoginScreen.id:(context)=>LoginScreen.screen(),
+                MainPage.id:(context)=>MainPage.screen(),
               },
               debugShowCheckedModeBanner: false,
             );
@@ -30,6 +31,10 @@ class MyApp extends StatelessWidget {
          theme: basicTheme(context),
          home:LoginScreen.screen(),
          debugShowCheckedModeBanner: false,
+         routes: {
+           LoginScreen.id:(context)=>LoginScreen.screen(),
+           MainPage.id:(context)=>MainPage.screen(),
+         },
        );
       }
     );
