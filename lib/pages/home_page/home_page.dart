@@ -202,7 +202,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                               color: Colors.red,
                                               child:Container(
                                                 child: Stack(
-                                                  children: [
+                                                  children: [ 
 
                                                     Container(
                                                       height:double.infinity,
