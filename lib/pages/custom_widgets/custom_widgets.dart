@@ -21,6 +21,7 @@ mixin AdditionalWidgets{
             fontWeight: FontWeight.w600,
             fontSize: 18,
           ),
+
           hintText: "${hint}",
           hintStyle:GoogleFonts.rubik(
             fontWeight: FontWeight.w400,
