@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:demo_app/pages/drawer_page/drawer_page.dart';
 import 'package:demo_app/pages/main_page/main_page.dart';
 import 'package:demo_app/pages/login_page/login_page.dart';
 import 'package:demo_app/pages/splash_page/splash_page.dart';
@@ -7,9 +8,8 @@ import 'package:flutter/material.dart';
 
 void main()=>runApp(MyApp());
 
-
 class MyApp extends StatelessWidget {
-  final futureWaitTime=Future.delayed(Duration(seconds: 3));
+  final futureWaitTime=Future.delayed(Duration(seconds: 30));
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
               routes: {
                 LoginScreen.id:(context)=>LoginScreen.screen(),
                 MainPage.id:(context)=>MainPage.screen(),
+                DrawerPage.id:(context)=>DrawerPage.screen(),
               },
               debugShowCheckedModeBanner: false,
             );
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
          routes: {
            LoginScreen.id:(context)=>LoginScreen.screen(),
            MainPage.id:(context)=>MainPage.screen(),
+           DrawerPage.id:(context)=>DrawerPage.screen(),
          },
        );
       }

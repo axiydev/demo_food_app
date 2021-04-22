@@ -39,9 +39,9 @@ class _LoginScreenState extends State<LoginScreen> with AdditionalWidgets{
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
                         color: Colors.white,
-                        border: Border.all(width: 0.5,color: Colors.grey),
+                        border: Border.all(width: 0.1,color: Colors.grey),
                         boxShadow: [
-                          BoxShadow(offset: Offset(0,5),color: Colors.grey[400]!,blurRadius: 10,spreadRadius:3),
+                          BoxShadow(offset: Offset(0,5),color: Colors.grey[400]!,blurRadius: 20,spreadRadius:3),
                         ],
                       ),
                       child:Center(
