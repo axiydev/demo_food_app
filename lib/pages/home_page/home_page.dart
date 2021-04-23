@@ -1,3 +1,5 @@
+import 'package:demo_app/models/card_model.dart';
+import 'package:demo_app/pages/custom_widgets/custom_card_widget.dart';
 import 'package:demo_app/pages/home_page/home_provider.dart';
 import 'package:demo_app/pages/main_page/main_provider.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,22 +24,30 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   Animation<double>? yAnimation;
   Animation<double>? scaleAnimation;
   List? listOne=[
-    "Veggie tomato mix",
-    "Egg and cucumber",
-    "Fried chicken m.",
-    "Moi-moi and ekpa",
-    "Veggie tomato mix",
-    "Egg and cucumber",
-    "Fried chicken m.",
-    "Moi-moi and ekpa",
-    "Veggie tomato mix",
-    "Egg and cucumber",
-    "Fried chicken m.",
-    "Moi-moi and ekpa",
-    "Veggie tomato mix",
-    "Egg and cucumber",
-    "Fried chicken m.",
-    "Moi-moi and ekpa",
+    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+  ];
+  List? lt=[
+    "Food",
+    "Drink",
+    "Fast",
+    "Food",
+    "Food",
+    "Drink",
+    "Fast",
+    "Food",
+    "Food",
+    "Drink",
+    "Fast",
+    "Food",
   ];
   @override
   void initState(){
@@ -57,7 +67,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     super.dispose();
     controller?.dispose();
   }
-
+  bool? isActive1=false;
   double? xOffxet=0;
   double? yOffset=0;
   double? scale=1;
@@ -73,8 +83,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             animation: yAnimation!,
             builder: (context,child)=>AnimatedBuilder(
               animation: scaleAnimation!,
-              builder:(context,child)=>InkWell(
-                  child:Transform(
+              builder:(context,child)=>Transform(
                     transform:Matrix4.translationValues(xAnimation!.value, yAnimation!.value, 0),
                     child: Transform.scale(
                       scale: scaleAnimation!.value,
@@ -90,7 +99,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                               BoxShadow(offset: Offset(-35,35),color: Color(0xFFF4F4F8).withOpacity(0.3),blurRadius: 0),
                             ]
                         ),
-                        child: Scaffold(
+                        child:Scaffold(
                           backgroundColor: Colors.transparent,
                           appBar: AppBar(
                             elevation: 0.0,
@@ -98,171 +107,129 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                             backgroundColor:Color(0xFFF4F4F8),
                             actions: [
                               IconButton(
-                                onPressed: (){
-                                },
-                                icon:Icon(Icons.shopping_cart_outlined,color: Colors.black,)
+                                  onPressed: (){
+                                  },
+                                  icon:Icon(Icons.shopping_cart_outlined,color: Colors.black,)
                               ),
                               SizedBox(width: 30,),
                             ],
                             leading: Container(
-                              padding: EdgeInsets.only(left: 33,),
-                              child: Center(
-                                child: InkWell(
-                                  child:Icon(Icons.menu,color: Colors.black,),
-                                  onTap: (){
-                                    if(scaleAnimation?.value==1.0){
-                                      valueHome.changeBorderRadius(borderValue1: 30.0);
-                                      controller?.forward();
-                                    }else{
-                                      valueHome.changeBorderRadius(borderValue1:.0);
-                                      controller?.reverse();
-                                    }
-                                  },
-                                ),
-                              )
+                                padding: EdgeInsets.only(left: 33,),
+                                child: Center(
+                                  child: InkWell(
+                                    child:Icon(Icons.menu,color: Colors.black,),
+                                    onTap: (){
+                                      if(scaleAnimation?.value==1.0){
+                                        valueHome.changeBorderRadius(borderValue1: 30.0);
+                                        controller?.forward();
+                                      }else{
+                                        valueHome.changeBorderRadius(borderValue1:.0);
+                                        controller?.reverse();
+                                      }
+                                    },
+                                  ),
+                                )
                             ),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.vertical(top:Radius.circular(valueHome.borderValueInfo))
                             ),
                           ),
                           body: SafeArea(
-                            child: Container(
-                              height: size.height,
-                              width: size.width,
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      width: size.width,
-                                      padding:EdgeInsets.symmetric(horizontal:35),
-                                      child: Text("Delicious\nfood for you",
-                                        style: GoogleFonts.rubik(
-                                          fontSize: 30,
-                                          fontWeight: FontWeight.w600,
-                                       ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 10,),
-                                    //#textfield
-                                    Container(
-                                      height: size.width*0.14,
-                                      width: double.infinity,
-                                      padding: EdgeInsets.symmetric(horizontal: size.width*0.1),
-                                      // color:Colors.red,
-                                      child:Center(
-                                        child: Container(
-                                           height: size.width*0.13,
-                                           width: double.infinity,
-                                           padding: EdgeInsets.only(top:4,right: 10),
-                                           decoration: BoxDecoration(
-                                             color: Color(0xFFEFEEEE),
-                                             borderRadius: BorderRadius.circular(size.width*0.9),
-                                           ),
-                                           child: TextField(
-                                             decoration: InputDecoration(
-                                               hintText: "Search",
-                                               hintStyle: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),
-                                               prefixIcon: IconButton(
-                                                 icon: Icon(Icons.search),
-                                                 onPressed:(){},
-                                               ),
-                                               border:InputBorder.none,
-                                             ),
-                                           ),
-                                        )
-                                      ),
-                                    ),
-                                    SizedBox(height: 20,),
-                                    //#listview
-                                    Container(
-                                      padding: EdgeInsets.symmetric(horizontal: 20),
-                                      width: size.width,
-                                      alignment: Alignment.centerRight,
-                                      child:InkWell(
-                                        child: Text("see more",
-                                          style: TextStyle(color: Color(0xFFFA4A0C)),
+                              child: Container(
+                                height: size.height,
+                                width: size.width,
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        width: size.width,
+                                        padding:EdgeInsets.symmetric(horizontal:35),
+                                        child: Text("Delicious\nfood for you",
+                                          style: GoogleFonts.rubik(
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                         ),
-                                        onTap: (){},
-                                      )
-                                    ),
-                                  //#listviev horizontal
-                                    Container(
-                                      height: size.height*0.45,
-                                      padding: EdgeInsets.symmetric(vertical: 20),
-                                      color:Color(0xFFF4F4F8),
-                                      child:ListView.builder(
+                                      ),
+                                      SizedBox(height: 10,),
+                                      //#textfield
+                                      Container(
+                                        height: size.width*0.14,
+                                        width: double.infinity,
+                                        padding: EdgeInsets.symmetric(horizontal: size.width*0.1),
+                                        // color:Colors.red,
+                                        child:Center(
+                                            child: Container(
+                                              height: size.width*0.13,
+                                              width: double.infinity,
+                                              padding: EdgeInsets.only(top:4,right: 10),
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFEFEEEE),
+                                                borderRadius: BorderRadius.circular(size.width*0.9),
+                                              ),
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  hintText: "Search",
+                                                  hintStyle: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),
+                                                  prefixIcon: IconButton(
+                                                    icon: Icon(Icons.search),
+                                                    onPressed:(){},
+                                                  ),
+                                                  border:InputBorder.none,
+                                                ),
+                                              ),
+                                            )
+                                        ),
+                                      ),
+                                      SizedBox(height: 20,),
+                                      //#category
+                                      Container(
+                                          height: size.width*0.15,
+                                          width: size.width,
+                                          color: Color(0xFFF4F4F8),
+                                          child: Container(
+                                            child: ListView.builder(
+                                              itemCount: lt?.length,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.horizontal,
+                                              itemBuilder: (context,index)=>InkWell(
+                                                child:categoryWid(context,text: lt![index],isActive:index==valueHome.getIndexInfo?true:false),
+                                                onTap: (){
+                                                  valueHome.doActive(index);
+                                                },
+                                              ),
+                                            ),
+                                          )
+                                      ),
+                                      SizedBox(height: 20,),
+                                      //#see more
+                                      Container(
+                                          padding: EdgeInsets.symmetric(horizontal: 20),
+                                          width: size.width,
+                                          alignment: Alignment.centerRight,
+                                          child:InkWell(
+                                            child: Text("see more",
+                                              style: TextStyle(color: Color(0xFFFA4A0C)),
+                                            ),
+                                            onTap: (){},
+                                          )
+                                      ),
+                                      //#listviev horizontal
+                                      Container(
+                                        height: size.height*0.45,
+                                        padding: EdgeInsets.symmetric(vertical: 20),
+                                        color:Color(0xFFF4F4F8),
+                                        child:ListView.builder(
                                           shrinkWrap: true,
                                           scrollDirection: Axis.horizontal,
                                           itemCount:listOne?.length,
-                                          itemBuilder:(context,index)=>Card(
-                                            color: Colors.orange,
-                                            margin: EdgeInsets.only(left: 20),
-                                            elevation: 0.0,
-                                            child: Container(
-                                              width: size.width*0.45,
-                                              color: Color(0xFFF4F4F8),
-                                              child:Container(
-                                                child: Stack(
-                                                  children: [
-                                                    Container(
-                                                      height:double.infinity,
-                                                      width: double.infinity,
-                                                      margin: EdgeInsets.only(top:50,bottom: 20),
-                                                      decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.circular(30),
-                                                        color: Colors.white,
-                                                        border: Border.all(width: 0.1,color: Colors.grey),
-                                                        boxShadow: [
-                                                          BoxShadow(color: Colors.grey[300]!,offset: Offset(0,3),blurRadius: 15,),
-                                                        ],
-                                                      ),
-                                                      child: Align(
-                                                        alignment: Alignment.bottomCenter,
-                                                        child: Container(
-                                                          padding: EdgeInsets.only(bottom:size.width*0.1,left: 15,right: 15),
-                                                          child: RichText(
-                                                            textAlign: TextAlign.center,
-                                                            text:TextSpan(
-                                                                text:listOne![index].toString()+"\n\n",
-                                                                style: GoogleFonts.rubik(fontSize:20,color: Colors.black,height: 1,fontWeight: FontWeight.w600),
-                                                                children: [
-                                                                  TextSpan(text: "N200",style: GoogleFonts.rubik(color: Color(0xFFFA4A0C),fontSize: 18)),
-                                                                ]
-                                                            ),
-                                                          ),
-                                                        )
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment: Alignment.topCenter,
-                                                      child: Container(
-                                                        height: size.width*0.3,
-                                                        width: size.width*0.3,
-                                                        margin: EdgeInsets.only(top:10),
-                                                        decoration: BoxDecoration(
-                                                          shape: BoxShape.circle,
-                                                          color: Colors.blue,
-                                                          boxShadow: [
-                                                            BoxShadow(color: Colors.grey[300]!,offset: Offset(0,2),blurRadius: 15,),
-                                                          ],
-                                                          image: DecorationImage(
-                                                            image: AssetImage('assets/images/ic_cooc.png'),
-                                                            fit: BoxFit.cover,
-                                                          )
-                                                        ),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
+                                          itemBuilder:(context,index)=>CustomCard(productMod:listOne![index]),
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            )
+                              )
                           ),
                           bottomNavigationBar: BottomNavigationBar(
                             showSelectedLabels: false,
@@ -270,24 +237,31 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                             type:BottomNavigationBarType.fixed,
                             elevation: 0.0,
                             backgroundColor:Color(0xFFF4F4F8),
+                            onTap: (index){
+                              valueHome.doActiveBottom(index);
+                            },
                             items: [
                               BottomNavigationBarItem(
-                                  icon:shadowWidget(
-                                    child: Icon(Icons.home,color: Colors.red,size: 25,),
-                                    isActive: true,
-                                  ),
-                                  label: "",
-                              ),
-                              BottomNavigationBarItem(
-                                icon:shadowWidget(child: Icon(Icons.favorite_border,color: Colors.grey[700],size: 25,),),
+                                icon:shadowWidget(
+                                  child: Icon(Icons.home,color:valueHome.getIndexBottomInfo==0?Colors.red:Colors.grey[700],size: 25,),
+                                  isActive:valueHome.getIndexBottomInfo==0?true:false,
+                                ),
                                 label: "",
                               ),
                               BottomNavigationBarItem(
-                                icon:shadowWidget(child:Icon(Icons.account_circle_outlined,color: Colors.grey[700],size: 25,)),
+                                icon:shadowWidget(child: Icon(Icons.favorite_border,color: valueHome.getIndexBottomInfo==1?Colors.red:Colors.grey[700],size: 25,),
+                                  isActive:valueHome.getIndexBottomInfo==1?true:false,
+                                ),
                                 label: "",
                               ),
                               BottomNavigationBarItem(
-                                icon:shadowWidget(child:Icon(Icons.timelapse,color: Colors.grey[700],size: 25,)),
+                                icon:shadowWidget(child:Icon(Icons.account_circle_outlined,color: valueHome.getIndexBottomInfo==2?Colors.red:Colors.grey[700],size: 25,),
+                                  isActive:valueHome.getIndexBottomInfo==2?true:false,),
+                                label: "",
+                              ),
+                              BottomNavigationBarItem(
+                                icon:shadowWidget(child:Icon(Icons.timelapse,color:valueHome.getIndexBottomInfo==3?Colors.red:Colors.grey[700],size: 25,),
+                                  isActive:valueHome.getIndexBottomInfo==3?true:false,),
                                 label: "",
                               ),
                             ],
@@ -296,7 +270,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                       ),
                     ),
                   ),
-              ),
             ),
           )
       ),
@@ -312,5 +285,28 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         ],
       ),
     );
+  }
+
+  Widget categoryWid(BuildContext context,{String? text,bool isActive=false}){
+    final Size size=MediaQuery.of(context).size;
+    return AspectRatio(
+        aspectRatio:2/1.4,
+        child: Card(
+          elevation: 0.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0.0),
+          ),
+          child: Container(
+            height: size.width*0.1,
+            decoration: BoxDecoration(
+              color: Color(0xFFF4F4F8),
+              border: isActive?Border(bottom: BorderSide(width: 3,color: Color(0xFFFA4A0C))):null,
+            ),
+            child: Center(
+              child: Text(text.toString(),style: GoogleFonts.rubik(color:isActive?Color(0xFFFA4A0C):Colors.grey[700],fontSize: 16,fontWeight: FontWeight.w400),),
+            ),
+          ),
+        ),
+      );
   }
 }

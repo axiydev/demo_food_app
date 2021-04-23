@@ -60,14 +60,14 @@ class _DrawerPageState extends State<DrawerPage> {
                   ),
                 ),
                 Container(
-                  width: size.width*0.3,
+                  width: size.width*0.32,
                   padding: EdgeInsets.only(left: 10),
                   child:ListTile(
                     contentPadding: EdgeInsets.all(0),
                     isThreeLine: false,
                     title: Text("SignOut",
                       style:GoogleFonts.rubik(
-                          fontSize: 18,
+                          fontSize: 16,
                           color: Colors.white
                       ),
                     ),
