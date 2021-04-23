@@ -172,23 +172,24 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                         )
                                       ),
                                     ),
+                                    SizedBox(height: 20,),
                                     //#listview
                                     Container(
                                       padding: EdgeInsets.symmetric(horizontal: 20),
                                       width: size.width,
                                       alignment: Alignment.centerRight,
-                                      child:TextButton(
+                                      child:InkWell(
                                         child: Text("see more",
                                           style: TextStyle(color: Color(0xFFFA4A0C)),
                                         ),
-                                        onPressed: (){},
-                                      ),
+                                        onTap: (){},
+                                      )
                                     ),
                                   //#listviev horizontal
                                     Container(
-                                      height: size.height*0.4,
+                                      height: size.height*0.45,
                                       padding: EdgeInsets.symmetric(vertical: 20),
-                                      color: Colors.black,
+                                      color:Color(0xFFF4F4F8),
                                       child:ListView.builder(
                                           shrinkWrap: true,
                                           scrollDirection: Axis.horizontal,
@@ -196,22 +197,40 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                           itemBuilder:(context,index)=>Card(
                                             color: Colors.orange,
                                             margin: EdgeInsets.only(left: 20),
-                                            elevation: 10.0,
+                                            elevation: 0.0,
                                             child: Container(
                                               width: size.width*0.45,
-                                              color: Colors.red,
+                                              color: Color(0xFFF4F4F8),
                                               child:Container(
                                                 child: Stack(
-                                                  children: [ 
-
+                                                  children: [
                                                     Container(
                                                       height:double.infinity,
                                                       width: double.infinity,
-                                                      margin: EdgeInsets.only(top:40),
+                                                      margin: EdgeInsets.only(top:50,bottom: 20),
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.circular(25),
+                                                        borderRadius: BorderRadius.circular(30),
                                                         color: Colors.white,
-                                                        border: Border.all(width: 1,color: Colors.grey)
+                                                        border: Border.all(width: 0.1,color: Colors.grey),
+                                                        boxShadow: [
+                                                          BoxShadow(color: Colors.grey[300]!,offset: Offset(0,3),blurRadius: 15,),
+                                                        ],
+                                                      ),
+                                                      child: Align(
+                                                        alignment: Alignment.bottomCenter,
+                                                        child: Container(
+                                                          padding: EdgeInsets.only(bottom:size.width*0.1,left: 15,right: 15),
+                                                          child: RichText(
+                                                            textAlign: TextAlign.center,
+                                                            text:TextSpan(
+                                                                text:listOne![index].toString()+"\n\n",
+                                                                style: GoogleFonts.rubik(fontSize:20,color: Colors.black,height: 1,fontWeight: FontWeight.w600),
+                                                                children: [
+                                                                  TextSpan(text: "N200",style: GoogleFonts.rubik(color: Color(0xFFFA4A0C),fontSize: 18)),
+                                                                ]
+                                                            ),
+                                                          ),
+                                                        )
                                                       ),
                                                     ),
                                                     Align(
@@ -219,11 +238,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                                       child: Container(
                                                         height: size.width*0.3,
                                                         width: size.width*0.3,
+                                                        margin: EdgeInsets.only(top:10),
                                                         decoration: BoxDecoration(
                                                           shape: BoxShape.circle,
                                                           color: Colors.blue,
                                                           boxShadow: [
-                                                            BoxShadow(color: Colors.grey,offset: Offset(0,5),blurRadius: 20),
+                                                            BoxShadow(color: Colors.grey[300]!,offset: Offset(0,2),blurRadius: 15,),
                                                           ],
                                                           image: DecorationImage(
                                                             image: AssetImage('assets/images/ic_cooc.png'),
