@@ -55,7 +55,7 @@ class CustomCard extends StatelessWidget {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       boxShadow: [
-                        BoxShadow(color: Colors.grey[300]!,offset: Offset(0,2),blurRadius: 15,),
+                        BoxShadow(color: Colors.grey[300]!,offset: Offset(0,6),blurRadius: 20,),
                       ],
                   ),
                   child: ClipRRect(

@@ -44,7 +44,7 @@ class _DrawerPageState extends State<DrawerPage> {
                       leading: lt![index].widgetInfo,
                       title: Text(lt![index].strInfo.toString(),
                         style:GoogleFonts.rubik(
-                            fontSize: 18,
+                            fontSize: 16,
                             color: Colors.white
                         ),
                       ),
@@ -54,7 +54,7 @@ class _DrawerPageState extends State<DrawerPage> {
                         indent: size.width*0.1,
                         thickness: 1,
                         color: Colors.white,
-                        endIndent: size.width*0.53,
+                        endIndent: size.width*0.54,
                       );
                     },
                   ),

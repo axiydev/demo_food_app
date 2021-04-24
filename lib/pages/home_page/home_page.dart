@@ -105,6 +105,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                             elevation: 0.0,
                             bottomOpacity: 0.0,
                             backgroundColor:Color(0xFFF4F4F8),
+                            brightness: Brightness.light,
                             actions: [
                               IconButton(
                                   onPressed: (){
