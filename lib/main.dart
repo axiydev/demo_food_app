@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 void main()=>runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  final futureWaitTime=Future.delayed(Duration(seconds: 30));
+  final futureWaitTime=Future.delayed(Duration(seconds: 10));
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
