@@ -2,6 +2,7 @@ import 'package:demo_app/models/card_model.dart';
 import 'package:demo_app/pages/custom_widgets/custom_card_widget.dart';
 import 'package:demo_app/pages/home_page/home_provider.dart';
 import 'package:demo_app/pages/main_page/main_provider.dart';
+import 'package:demo_app/pages/product_page/product_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,16 +25,16 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   Animation<double>? yAnimation;
   Animation<double>? scaleAnimation;
   List? listOne=[
-    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
-    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
-    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
-    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
-    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
-    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
-    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
-    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
-    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
-    ProductMod(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png"),
+    ProductMod.hero(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png",heroTag: "sds"),
+    ProductMod.hero(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png",heroTag: "sdwewoi"),
+    ProductMod.hero(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png",heroTag: "lskkjsk"),
+    ProductMod.hero(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png",heroTag: "jksakdj"),
+    ProductMod.hero(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png",heroTag: "kjskdjs"),
+    ProductMod.hero(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png",heroTag: "jhsdhs"),
+    ProductMod.hero(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png",heroTag: "kjsksjd"),
+    ProductMod.hero(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png",heroTag: "jsksjdk"),
+    ProductMod.hero(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png",heroTag: "ksldks"),
+    ProductMod.hero(about:"Veggie tomato mix", price: "N200", image:"assets/images/ic_cooc.png",heroTag: "kajsdkjk"),
   ];
   List? lt=[
     "Food",
@@ -224,7 +225,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                           shrinkWrap: true,
                                           scrollDirection: Axis.horizontal,
                                           itemCount:listOne?.length,
-                                          itemBuilder:(context,index)=>CustomCard(productMod:listOne![index]),
+                                          itemBuilder:(context,index)=>GestureDetector(
+                                            child: CustomCard(productMod:listOne![index]),onTap: (){
+                                            Navigator.of(context).push(new MaterialPageRoute(builder:(context)=>ProductPage(productMod:listOne![index])));
+                                          },),
                                         ),
                                       ),
                                     ],
